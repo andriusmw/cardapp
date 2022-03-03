@@ -12,6 +12,15 @@
           <div class="form-group">
              <input type="text" class="form-control" placeholder="Photo's title" required>
           </div>
+          <div class="form-group">
+            <textarea  rows="5" class="form-control" placeholder="Photo's Description" required></textarea>
+          </div>
+
+          <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+          <img [src]="photoSelected || 'assets/images/no-image.png'" alt="no imagen" style="width: 40%;" (click)="photoInput.click()">
+          <!--Lo que hace es que cuando se clickee la imagen, va al input que tiene el ide photInput y hace la
+          función .click() ; entonces ese Input reacciona a ese click y se activa change que llama al método
+        onPhotoSelected y le pasa el evento al que está suscrito-->
       </form>
     </div>
   </div>
