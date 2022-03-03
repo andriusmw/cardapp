@@ -20,7 +20,11 @@ export class PhotoFormComponent implements OnInit {
 
 //Fuente: https://www.iteramos.com/pregunta/87544/la-propiedad--no-tiene-inicializador-y-no-se-asigna-definitivamente-en-el-constructor
 //en el tsconfig.json para que no pidiera inicializar todas las variables y file:File no diera error.
-  photoSelected: string | ArrayBuffer | null;
+
+
+photoSelected: string | ArrayBuffer | null;
+  //Hubo que añadir la opción de tipo null al iicializar photoSelected para que fuera compatible con
+  //con el tipo de datos nulo.
 
   constructor() {
 
