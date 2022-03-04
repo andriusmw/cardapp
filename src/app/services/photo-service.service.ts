@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+import { Photo} from "../interfaces/Photo"
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +24,10 @@ export class PhotoServiceService {
   //Esto es para enviar los datos de la foto cargada al servidor
   //que luego se mostrará en la pestaña photos.
   //Hay que añadir el servidor y levantarlo
+
+getPhotos(){
+  return this.http.get<Photo[]>(this.URI);
+}
+
+
 }
