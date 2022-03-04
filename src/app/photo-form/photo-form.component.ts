@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {PhotoServiceService } from "../services/photo-service.service"
+
+
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget
 }
@@ -26,7 +29,7 @@ photoSelected: string | ArrayBuffer | null;
   //Hubo que añadir la opción de tipo null al iicializar photoSelected para que fuera compatible con
   //con el tipo de datos nulo.
 
-  constructor() {
+  constructor(private photoService: PhotoServiceService) {
 
 
     this.photoSelected = "";
@@ -49,10 +52,14 @@ photoSelected: string | ArrayBuffer | null;
   }
 
   uploadPhoto(title: HTMLInputElement, description: HTMLTextAreaElement): boolean {
-      console.log(title.value)
-      console.log(description.value)
-      return false;
+      //console.log(title.value)
+     // console.log(description.value)
+
       //el boolean y el return false hacen que la página no se recargue, para poder leer el console log
-  }
+    this.photoService.createPhoto(title.value, description.value, this.file)
+      .subscribe(res => console.log(res), err => console.log(err))
+
+    return false;
+    }
 
 }
