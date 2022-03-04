@@ -48,4 +48,11 @@ photoSelected: string | ArrayBuffer | null;
     }
   }
 
+  uploadPhoto(title: HTMLInputElement, description: HTMLTextAreaElement): boolean {
+      console.log(title.value)
+      console.log(description.value)
+      return false;
+      //el boolean y el return false hacen que la página no se recargue, para poder leer el console log
+  }
+
 }

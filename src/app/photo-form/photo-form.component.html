@@ -8,12 +8,12 @@
       Upload a Photo
     </div>
     <div class="card-body">
-      <form>
+      <form (submit)="uploadPhoto(title, description)">
           <div class="form-group">
-             <input type="text" class="form-control" placeholder="Photo's title" required>
+             <input type="text" class="form-control" placeholder="Photo's title" required #title >
           </div>
           <div class="form-group">
-            <textarea  rows="5" class="form-control" placeholder="Photo's Description" required></textarea>
+            <textarea  rows="5" class="form-control" placeholder="Photo's Description" required #description></textarea>
           </div>
 
           <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
@@ -21,6 +21,10 @@
           <!--Lo que hace es que cuando se clickee la imagen, va al input que tiene el ide photInput y hace la
           función .click() ; entonces ese Input reacciona a ese click y se activa change que llama al método
         onPhotoSelected y le pasa el evento al que está suscrito-->
+<br>
+            <button class="btn btn-primary btn-block">
+                Upload
+            </button>
       </form>
     </div>
   </div>
