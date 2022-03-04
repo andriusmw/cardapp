@@ -7,14 +7,18 @@ import { PhotoServiceService } from '../services/photo-service.service';
 })
 export class PhotoListComponent implements OnInit {
 
-  photos = [];
+  //photos = [];
+  photos: any[] = []//Daba error por el tipo de dato
 
   constructor(private photoService: PhotoServiceService) { }
 
   ngOnInit(): void {
     this.photoService.getPhotos()
       .subscribe(
-        res => console.log(res),
+        res => {
+        this.photos = res;
+      },
+
         err => console.log(err)
       )
   }

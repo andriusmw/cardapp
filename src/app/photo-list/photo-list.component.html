@@ -1,5 +1,16 @@
 <div class="row">
-  <div class="col-md-4 p-4">
-
+  <div class="col-md-4 p-4" *ngFor="let photo of photos">
+<div class="card">
+  <div class="card-header">
+    {{photo.title}}
+  </div>
+  <img [src]="'http://localhost:4000/' + photo.imagePath" alt="imagen-no-carga"  class="img-card-top w-100" >
+  <!--En la ruta de la imagen pone de ruta el servidor + el nombre de la imagen
+  cada imagen tiene un imagePath de modo que carga la imagen, si ponemos la ruta
+  entera a mano descarga la imagen-->
+  <div class="card-body">
+    {{photo.description}}
+  </div>
+</div>
   </div>
 </div>
