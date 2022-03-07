@@ -51,4 +51,17 @@ export class PhotoPreviewComponent implements OnInit {
 
   }
 
+
+  updatedPhoto(title: HTMLInputElement, description: HTMLTextAreaElement): boolean {
+    this.photoservice.updatePhoto(this.id, title.value, description.value)
+        .subscribe(
+          res => {
+            this.router.navigate(["/photos"])
+          },
+          err => console.log(err)
+        )
+
+    return false; //cancela los reinicios de los botones
+  }
+
 }

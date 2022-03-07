@@ -42,7 +42,11 @@ deletePhoto(id: string){
   return this.http.delete(this.URI + "/" + id);
 }
 
-
+//El método del preview llama a este
+updatePhoto(id: string, title: string, description: string) {
+ return this.http.put(this.URI + "/" + id ,{ title, description});
+ //le pasa la ruta con el id y entre llaves los datos a modificar
+}
 
 
 
