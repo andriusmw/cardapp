@@ -32,6 +32,23 @@ export class PhotoPreviewComponent implements OnInit {
         err => console.log(err)
       )
     })
+
+  }
+
+//El método del preview llama al método del servicio pasando los datos
+//del id, mostrando por consola y redireconando.
+//En el otro lado, en el servicio, se usa la propiedad delete del http
+//para atacar al servidor y borrar la imagen y sus datos.
+  deletePhoto(id: string){
+    this.photoservice.deletePhoto(id)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(["/photos"])
+        },
+          err => console.log(err)
+      )
+
   }
 
 }

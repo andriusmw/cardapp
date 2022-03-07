@@ -37,4 +37,13 @@ getPhoto(id: string){
   //añadido o concatenado al URI ( el URI es la URL de arriba)
 }
 
+//El método de abajo es para borrar foto desde vista detalle
+deletePhoto(id: string){
+  return this.http.delete(this.URI + "/" + id);
+}
+
+
+
+
+
 }
