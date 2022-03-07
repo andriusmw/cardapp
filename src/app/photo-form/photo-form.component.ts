@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PhotoServiceService } from "../services/photo-service.service"
+import {Router} from "@angular/router"
 
 
 interface HtmlInputEvent extends Event {
@@ -29,7 +30,7 @@ photoSelected: string | ArrayBuffer | null;
   //Hubo que añadir la opción de tipo null al iicializar photoSelected para que fuera compatible con
   //con el tipo de datos nulo.
 
-  constructor(private photoService: PhotoServiceService) {
+  constructor(private photoService: PhotoServiceService, private router: Router) {
 
 
     this.photoSelected = "";
@@ -57,7 +58,9 @@ photoSelected: string | ArrayBuffer | null;
 
       //el boolean y el return false hacen que la página no se recargue, para poder leer el console log
     this.photoService.createPhoto(title.value, description.value, this.file)
-      .subscribe(res => console.log(res), err => console.log(err))
+      .subscribe(res => {
+        this.router.navigate(["/photos"]);
+      }, err => console.log(err))
 
     return false;
     }
