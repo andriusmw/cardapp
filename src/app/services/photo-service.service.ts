@@ -29,5 +29,12 @@ getPhotos(){
   return this.http.get<Photo[]>(this.URI);
 }
 
+//El método de abajo es para cuando le dan click coger datos de ESA FOTO SOLA
+//como su id para añadirlo a una ruta de navegación y mostrar detalles
+getPhoto(id: string){
+  return this.http.get(this.URI + "/" + id);
+  //Cuando llaman al método coge el id, se lo pasa al backend
+  //añadido o concatenado al URI ( el URI es la URL de arriba)
+}
 
 }

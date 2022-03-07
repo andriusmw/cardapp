@@ -25,11 +25,12 @@ export class PhotoListComponent implements OnInit {
 
   //Creando evento para cuando escuche el click llevar a vista detalle
   selectedCard(id: string) {
-    console.log(id)
-    //Cuando le hacen click llama a selectedcard pasaándole el id de la
-    //tarjeta, sospecho que le pasa la propiedad _id del backend.
-    //NO, le pasa _id que está en la interfaz, lo mismo que imagePath
-    //anteriormente, está cogiendo esas propiedades de la interfaz.
+   this.photoService.getPhoto(id)
+   .subscribe(
+     res => console.log(res),
+     error => console.log(error)
+   )
+
   }
 
 
