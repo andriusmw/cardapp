@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoServiceService } from '../services/photo-service.service';
+import {Router} from "@angular/router"
+
 @Component({
   selector: 'app-photo-list',
   templateUrl: './photo-list.component.html',
@@ -10,7 +12,7 @@ export class PhotoListComponent implements OnInit {
   //photos = [];
   photos: any[] = []//Daba error por el tipo de dato
 
-  constructor(private photoService: PhotoServiceService) { }
+  constructor(private photoService: PhotoServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.photoService.getPhotos()
@@ -25,11 +27,7 @@ export class PhotoListComponent implements OnInit {
 
   //Creando evento para cuando escuche el click llevar a vista detalle
   selectedCard(id: string) {
-   this.photoService.getPhoto(id)
-   .subscribe(
-     res => console.log(res),
-     error => console.log(error)
-   )
+      this.router.navigate(["/photos", id])
 
   }
 
