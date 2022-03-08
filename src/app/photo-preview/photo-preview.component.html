@@ -4,38 +4,9 @@
   </h1>
 </div>
 
-<!--
-<ng-template #main_content>
-  <div class="row">
-    <div class="cold-md-5">
-      <div class="card">
-        <img [src]="'http://localhost:4000/' + photo.imagePath" alt="no-imag" class="img-fluid">
-      </div>
-     </div>
-      <div class="col-md-7">
-        <div class="card">
-          <form  class="card-body" (submit)="updatedPhoto(title, description)">
-              <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Photo's title" [value]="photo.title" #title  >
-              </div>
-              <div class="form-group">
-                <textarea  rows="2" class="form-control" placeholder="Photo's description " [value]="photo.description" #description></textarea>
-              </div>
-              <button class="btn btn-primary btn-block">
-                Update
-              </button>
-          </form>
-        </div>
-      </div>
-  </div>
 
 
-  <button class="btn btn-danger" (click)="deletePhoto(photo._id)">
-    DELETE
-  </button>
-</ng-template>
 
--->
 <ng-template #main_content>
   <div>
     <div class="cold-md-5" style="float:left;">
@@ -43,14 +14,14 @@
         <img [src]="'http://localhost:4000/' + photo.imagePath" alt="no-imag" class="img-fluid">
       </div>
      </div>
-      <div class="col-md-7" style="float: left;">
+      <div class="col-md-7" style="float: left; padding-left: 1em;">
         <div >
           <form  (submit)="updatedPhoto(title, description)">
               <div class="form-group">
                   <input type="text" class="form-control" placeholder="Photo's title" [value]="photo.title" #title  >
               </div>
               <div class="form-group">
-                <textarea  rows="2" class="form-control" placeholder="Photo's description " [value]="photo.description" #description></textarea>
+                <textarea  rows="12" class="form-control" placeholder="Photo's description " [value]="photo.description" #description></textarea>
               </div>
               <button class="btn btn-primary btn-block">
                 Update

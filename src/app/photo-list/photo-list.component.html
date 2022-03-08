@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-2 p-4" *ngFor="let photo of photos">
+  <div class="col-md-3 p-4" *ngFor="let photo of photos">
 <div class="card card-photo" (click)="selectedCard(photo._id)">
   <div class="card-header">
     {{photo.title}}
@@ -8,9 +8,9 @@
   <!--En la ruta de la imagen pone de ruta el servidor + el nombre de la imagen
   cada imagen tiene un imagePath de modo que carga la imagen, si ponemos la ruta
   entera a mano descarga la imagen-->
-  <div class="card-body">
+  <!--<ng-container ></ng-container><div class="card-body">
     {{photo.description}}
-  </div>
+  </div>-->
 </div>
   </div>
 </div>
